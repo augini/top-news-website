@@ -44,7 +44,7 @@ class App extends Component {
 
   //Function to construct URL
   constructURL = (country, category) => {
-    const URL = `http://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=33c6c100c9154b9a819d0e552f749941`
+    const URL = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=33c6c100c9154b9a819d0e552f749941`
     return URL
   }
 
