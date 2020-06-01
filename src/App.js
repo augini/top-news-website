@@ -16,7 +16,7 @@ class App extends Component {
       categories: ['general', 'business', 'entertainment', 'health', 'science', 'sports', 'technology'],
       // categories: ['general', 'business'],
       countries: ['us', 'kr', 'ru'],
-      currentCountry: 'ru ',
+      currentCountry: 'us',
       currentCategoryID: 0,
       currentCollection: [],
       isLoading: true
