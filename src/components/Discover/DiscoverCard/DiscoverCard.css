@@ -1,0 +1,12 @@
+.discover-card-container {
+    cursor: pointer;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    height: 100%;
+    transform: translate(0);
+    transition: transform 0.25s ease-out;
+}
+
+.discover-card-container:hover {
+    transform: scale(1.02);
+}

@@ -1,0 +1,11 @@
+.tab-card-container {
+    cursor: pointer;
+    -moz-osx-font-smoothing: grayscale;
+    backface-visibility: hidden;
+    transform: translate(0);
+    transition: transform 0.25s ease-out;
+}
+
+.tab-card-container:hover {
+    transform: scale(1.01);
+}
