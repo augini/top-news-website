@@ -13,10 +13,10 @@ class App extends Component {
     super();
     this.state = {
       collection: [],
-      // categories: ['general', 'business', 'entertainment', 'health', 'science', 'sports', 'technology'],
-      categories: ['general', 'business'],
+      categories: ['general', 'business', 'entertainment', 'health', 'science', 'sports', 'technology'],
+      // categories: ['general', 'business'],
       countries: ['us', 'kr', 'ru'],
-      currentCountry: 'ru',
+      currentCountry: 'ru ',
       currentCategoryID: 0,
       currentCollection: [],
       isLoading: true
@@ -33,7 +33,7 @@ class App extends Component {
       const prevData = prevState.collection
       //When the index reaches the last category, release the spinner
       //and select data for the first category
-      if(index === 1) return {
+      if(index === 6) return {
           isLoading: false,
           collection: [ ...prevData, data]}
       else return {
@@ -59,7 +59,7 @@ class App extends Component {
 
   render() {
     // console.log(this.state.collection[0], "currentCollection is", this.state.currentCollection);
-    
+      
     return (
       this.state.isLoading ? 
       
