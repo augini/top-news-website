@@ -2,7 +2,7 @@
     "name": "my-news-website",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://augini.github.io/global-positive-news-web/",
+    "homepage": "https://augini.github.io/global-news-filtered/",
     "dependencies": {
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.5.0",
