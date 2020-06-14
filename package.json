@@ -2,14 +2,15 @@
     "name": "my-news-website",
     "version": "0.1.0",
     "private": true,
-    "homepage": "https://augini.github.io/global-news-filtered",
     "dependencies": {
         "@testing-library/jest-dom": "^4.2.4",
         "@testing-library/react": "^9.5.0",
         "@testing-library/user-event": "^7.2.1",
+        "axios": "^0.19.2",
         "bootstrap": "^4.5.0",
         "mdb": "^0.1.0",
         "mdbreact": "^4.27.0",
+        "moment": "^2.26.0",
         "react": "^16.13.1",
         "react-bootstrap": "^1.0.1",
         "react-dom": "^16.13.1",
@@ -17,8 +18,6 @@
         "react-scripts": "3.4.1"
     },
     "scripts": {
-        "predeploy": "npm run build",
-        "deploy": "gh-pages -b master -d build",
         "start": "react-scripts start",
         "build": "react-scripts build",
         "test": "react-scripts test",

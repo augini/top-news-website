@@ -34,7 +34,7 @@ class TabPage extends Component {
   render() {
     // console.log(this.props.generalContent, "comingfrom TabPage");
     return (
-      <div className="w-100 pl-5 pr-2 mt-4 ">
+      <div className="w-100 pl-5 pr-2">
 
         <MDBNav className="nav-tabs">
           {this.state.tabs.map((tab, index) => (
@@ -55,8 +55,8 @@ class TabPage extends Component {
 
             <MDBTabPane key={index} tabId={tab.id} role="tabpanel">
               <div className="mt-1 d-flex p-3">
-                <CarouselPage generalContent={this.props.generalContent.slice(0, 8)} />
-                <TabList generalContent={this.props.generalContent.slice(8, 11)} />
+                <CarouselPage generalContent={this.props.generalContent.slice(0, 7)} />
+                <TabList generalContent={this.props.generalContent.slice(7, 11)} />
               </div>
             </MDBTabPane>
 

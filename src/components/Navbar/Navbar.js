@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { MDBNavbar,MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse,  MDBIcon } from "mdbreact";
+import { MDBNavbar,MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse,  MDBIcon, MDBNavbarBrand } from "mdbreact";
+import './NavbarStyle.css'
 
 class NavbarPage extends Component {
   state = {
@@ -17,6 +18,7 @@ class NavbarPage extends Component {
     }));
 
   render() {
+    const {changeCountry} = this.props 
     return (
 
       <MDBNavbar color="cloudy-knoxville-gradient" light expand="lg">
@@ -24,14 +26,17 @@ class NavbarPage extends Component {
         <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse3")} />
         
         <MDBCollapse id="navbarCollapse3" isOpen={this.state.collapseID} navbar>
-         
+        <MDBNavbarBrand href="#" className = 'logoContainer'>
+          <span className = "logo"> TopNews </span>
+        </MDBNavbarBrand>
+
          {/* Replace the content with the data from the array */}
           <MDBNavbarNav left className="font-weight-bold">
            
            {this.state.regions.map((region, index) => (
             
             <MDBNavItem key = {index}  >
-              <MDBNavLink to= {region.link}>{region.country}</MDBNavLink>
+              <MDBNavLink to= {region.link} onClick = {()=>{changeCountry(region.shortName)}} >{region.country}</MDBNavLink>
             </MDBNavItem>
            
            ))}

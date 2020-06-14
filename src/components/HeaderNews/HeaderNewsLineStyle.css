@@ -1,0 +1,43 @@
+.tcontainer {
+    overflow: hidden;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.ticker-wrap {
+    width: 100%;
+    padding-left: 100%;
+    /* background: #eee; */
+}
+
+@keyframes ticker {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+.ticker-move {
+    display: inline-block;
+    white-space: nowrap;
+    padding-right: 100;
+    animation-name: ticker;
+    animation-duration: 500s;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-delay: -45s;
+}
+
+.ticker-move:hover {
+    animation-play-state: paused;
+}
+
+.ticker-item {
+    display: inline-block;
+    padding: 0 2rem;
+    color: black;
+    font-size: 1rem;
+}

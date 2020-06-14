@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Navbar from './components/Navbar/Navbar'
+import HeaderNewsLine from './components/HeaderNews/HeaderNewsLine'
 import FooterPage from './components/Footer/FooterPage'
 import TabPage from './components/Tab/TabPage'
 import Welcome from './components/Welcome/Welcome'
@@ -8,47 +9,34 @@ import { Discover } from './components/Discover/Discover'
 import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css'
 
+import { FetchData } from './api'
+
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
+ 
+  state = {
       collection: [],
-      categories: ['general', 'business', 'entertainment', 'health', 'science', 'sports', 'technology'],
-      // categories: ['general', 'business'],
+      // categories: ['general', 'business', 'entertainment', 'health', 'science', 'sports', 'technology'],
+      categories: ['general', 'business'],
       countries: ['us', 'kr', 'ru'],
       currentCountry: 'us',
       currentCategoryID: 0,
-      currentCollection: [],
       isLoading: true
     }
-  }
 
   componentDidMount() {
-  //Pull the data from API for each category
-  this.state.categories.forEach((category, index) => {
-  var req = new Request(this.constructURL(this.state.currentCountry, category ));
-  fetch(req)
-    .then(res => res.json())
-    .then(data => this.setState((prevState,prevProps)=>{
-      const prevData = prevState.collection
-      //When the index reaches the last category, release the spinner
-      //and select data for the first category
-      if(index === 6) return {
-          isLoading: false,
-          collection: [ ...prevData, data]}
-      else return {
-        collection: [ ...prevData, data],
-      }
-    }))
-  })}
-
-  //Function to construct URL
-  constructURL = (country, category) => {
-    const URL = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=33c6c100c9154b9a819d0e552f749941`
-    return URL
+  //Pull data from API for each category
+  this.state.categories.forEach(async (category) =>{
+      const response = await FetchData(this.state.currentCountry,category)
+        this.setState((prevState) => {
+          return {
+            isLoading: false,
+            collection: [...prevState.collection, response],
+       }})
+       
+    })
   }
 
-  //Function to change category when category is selected
+  //Set the current category id to the index of the new selected category
   changeCategory = (newCategory) => {
     this.setState((prevState, prevProps) => {
       return {
@@ -57,19 +45,27 @@ class App extends Component {
     })
   }
 
+ changeCountry  = async (country) => {
+    const response =  await FetchData(country, 'business')
+    this.setState((prevState) => {
+    return {
+      isLoading: false,
+      collection: [response]
+ }})}
+
+
   render() {
-    // console.log(this.state.collection[0], "currentCollection is", this.state.currentCollection);
-      
+    const data = this.state.collection[this.state.currentCategoryID]
+    console.log(this.state.collection);
     return (
       this.state.isLoading ? 
-      
       <SpinnerPage /> :
-      
       <BrowserRouter>
         <div className="App">
-          <Navbar/>
-          <TabPage generalContent = {this.state.collection[this.state.currentCategoryID].articles} changeCategory={this.changeCategory} />
-          <Discover generalContent={this.state.collection[this.state.currentCategoryID].articles} />
+          <Navbar changeCountry = {this.changeCountry} />
+          <HeaderNewsLine generalContent= {data} />
+          <TabPage generalContent = {data} changeCategory={this.changeCategory} />
+          <Discover generalContent = {data} />
           <Route path='/hello' component={ Welcome } />
           <FooterPage />
         </div>

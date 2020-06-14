@@ -1,0 +1,8 @@
+.logo {
+    margin-left: 3rem;
+    font-weight: bold;
+}
+
+.logoContainer:hover {
+    color: black !important;
+}

@@ -8,3 +8,14 @@ body {
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+a {
+    color: black !important;
+    text-decoration: none !important;
+}
+
+a:hover {
+    color: rgb(70, 70, 204) !important;
+    text-decoration: none !important;
+    cursor: pointer;
+}

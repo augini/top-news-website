@@ -9,3 +9,9 @@
 .articleURL:hover {
     transform: scale(1.01);
 }
+
+.imageContainer {
+    width: 1050px;
+    height: 600px;
+    background-position: center;
+}

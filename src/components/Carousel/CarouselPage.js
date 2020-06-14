@@ -3,6 +3,8 @@ import { MDBCarousel, MDBCarouselCaption, MDBCarouselInner, MDBCarouselItem, MDB
 import './CarouselPage.css'
 
 const CarouselPage = (props) => {
+  const imageUrlForEmptyArticle = 'https://i.pinimg.com/originals/bf/97/f7/bf97f7fb893ea02038a28bf6415fed02.jpg'
+
   return (
     <div className = "w-100">
       <MDBCarousel
@@ -13,16 +15,10 @@ const CarouselPage = (props) => {
       className="z-depth-1"
     >
       <MDBCarouselInner>
-
       {props.generalContent.map((article, index) => (
-       
         <MDBCarouselItem key = {index} itemId= {index.toString()}>  
           <MDBView>
-            <img
-              className="d-block w-100"
-              src={article.urlToImage?article.urlToImage:'https://i.pinimg.com/originals/bf/97/f7/bf97f7fb893ea02038a28bf6415fed02.jpg'}
-              alt="First slide"
-            />
+           <div style={{ backgroundImage: `url(${article.urlToImage?article.urlToImage: imageUrlForEmptyArticle})`}} className = "imageContainer"/>
           <MDBMask overlay="black-light" />
           </MDBView>
           <MDBCarouselCaption className = "articleURL">
