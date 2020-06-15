@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import { MDBCard, MDBCardBody, MDBCardTitle, MDBCardText, MDBCardImage, MDBCardFooter} from 'mdbreact';
+import { MDBCard, MDBCardBody, MDBCardText, MDBCardImage, MDBCardFooter} from 'mdbreact';
 import './TabCard.css'
 
 const TabCard = (props) => {

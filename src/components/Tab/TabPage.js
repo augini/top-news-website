@@ -34,7 +34,7 @@ class TabPage extends Component {
   render() {
     // console.log(this.props.generalContent, "comingfrom TabPage");
     return (
-      <div className="w-100 pl-5 pr-2">
+      <div className="w-100 pl-2 pr-2">
 
         <MDBNav className="nav-tabs">
           {this.state.tabs.map((tab, index) => (

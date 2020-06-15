@@ -2,13 +2,10 @@ import React from "react";
 import './HeaderNewsStyle.css'
 
 const HeaderNews = (props) => {
-  console.log(props, "new");
   return (
-    <div>  
-      <a href={props.article.url} alt= 'news ticker'>
-        {props.article.title} 
-      </a>  
-    </div>
+      <a href={props.article.url} alt='news ticker'>
+        {props.article.title + Array(10).fill('\xa0').join('') + '|'}  
+      </a>
   )
 
 };

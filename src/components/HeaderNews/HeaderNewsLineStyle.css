@@ -1,5 +1,4 @@
 .tcontainer {
-    overflow: hidden;
     width: 100%;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -7,8 +6,8 @@
 
 .ticker-wrap {
     width: 100%;
-    padding-left: 100%;
-    /* background: #eee; */
+    display: flex;
+    flex-direction: row;
 }
 
 @keyframes ticker {
@@ -38,6 +37,22 @@
 .ticker-item {
     display: inline-block;
     padding: 0 2rem;
-    color: black;
+    color: white !important;
     font-size: 1rem;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    z-index: 1;
+}
+
+.ticker-side-note {
+    display: flex;
+    height: 1.7rem;
+    align-items: center;
+    background: black;
+    color: white;
+    white-space: nowrap;
+    padding-left: 15px;
+    padding-right: 10px;
+    z-index: 2;
+    box-shadow: 1px 1px 3px 2px black;
 }

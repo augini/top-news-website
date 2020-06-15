@@ -12,7 +12,7 @@ const CarouselPage = (props) => {
       length={props.generalContent.length-1}
       showControls={true}
       showIndicators={true}
-      className="z-depth-1"
+      className="z-depth-1 "
     >
       <MDBCarouselInner>
       {props.generalContent.map((article, index) => (
@@ -22,8 +22,10 @@ const CarouselPage = (props) => {
           <MDBMask overlay="black-light" />
           </MDBView>
           <MDBCarouselCaption className = "articleURL">
-           <a href={article.url} className = "text-white"> <h3 className="h3-responsive">{article.title}</h3></a>
-            <p>{article.description}</p>
+           <a href={article.url} className = "text-white"> 
+                <h3 className="h3-responsive">{article.title}</h3>
+           </a>
+          <p>{article.description}</p>
           </MDBCarouselCaption>
         </MDBCarouselItem>
 
