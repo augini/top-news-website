@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { MDBTabPane, MDBTabContent, MDBNav, MDBNavItem, MDBNavLink } from "mdbreact";
 import CarouselPage from '../Carousel/CarouselPage'
 import { TabList } from './TabList/TabList'
-import {Covid} from '../Covid19/CovidPage'
+import { Covid } from '../Covid19/CovidPage'
 
 class TabPage extends Component {
   state = {
@@ -35,7 +35,7 @@ class TabPage extends Component {
   render() {
 
     const { categories, generalContent, handleChange, data, country } = this.props
-  
+
     return (
       <div className="w-100 pl-2 pr-2">
 
@@ -55,21 +55,24 @@ class TabPage extends Component {
 
         <MDBTabContent activeItem={this.state.activeItem} >
           {this.state.tabs.map((tab, index) => {
-            if(index !== 7) {
+            if (index === 7) {
               return (
-              <MDBTabPane key={index} tabId={tab.id} role="tabpanel">
+                <MDBTabPane key={index} tabId={tab.id} role="tabpanel">
+                  <Covid handleChange={handleChange} data={data} country={country} />
+                </MDBTabPane>)} 
                 
-                <div className="mt-1 d-flex p-3">
-                  <CarouselPage generalContent={generalContent.slice(0, 7)} />
-                  <TabList generalContent={generalContent.slice(7, 11)} />
-                </div>
-                
-              </MDBTabPane>
-            )} else {
-              return (
-              <Covid handleChange = {handleChange} data = {data} country = {country} />
-            )}
+            else {
 
+              return (
+                <MDBTabPane key={index} tabId={tab.id} role="tabpanel">
+
+                  <div className="mt-1 d-flex flex-direction p-3">
+                    <CarouselPage generalContent={generalContent.slice(0, 7)} specialArticle = {generalContent[8]} />
+                    <TabList generalContent={generalContent.slice(9, 12)} />
+                  </div>
+
+                </MDBTabPane> )
+            }
 
           })}
 

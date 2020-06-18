@@ -7,26 +7,17 @@ const FooterPage = () => {
       <MDBContainer fluid className="text-center text-md-left">
         <MDBRow>
           <MDBCol md="6">
-            <h5 className="title">Footer Content</h5>
-            <p>
-              Here you can use rows and columns here to organize your footer
-              content.
-            </p>
+            <h5 className="title">T.O.P </h5>
+            <p>This website is created to display top news from three regions instantly</p>
           </MDBCol>
           <MDBCol md="6">
-            <h5 className="title">Links</h5>
+            <h5 className="title">Top sources</h5>
             <ul>
               <li className="list-unstyled">
-                <a href="#!">Link 1</a>
+                <a href="https://www.bbc.com/">BBC News</a>
               </li>
               <li className="list-unstyled">
-                <a href="#!">Link 2</a>
-              </li>
-              <li className="list-unstyled">
-                <a href="#!">Link 3</a>
-              </li>
-              <li className="list-unstyled">
-                <a href="#!">Link 4</a>
+                <a href="https://en.yna.co.kr/">Yonhap News</a>
               </li>
             </ul>
           </MDBCol>
@@ -34,7 +25,10 @@ const FooterPage = () => {
       </MDBContainer>
       <div className="footer-copyright text-center py-3">
         <MDBContainer fluid>
-          &copy; {new Date().getFullYear()} Copyright: <a href="https://www.mdbootstrap.com"> MDBootstrap.com </a>
+          &copy; {new Date().getFullYear()} Copyright: 
+          <a href="https://www.atabekov.com" alt ='Farrukh website'> 
+          <span role = 'img' aria-label = 'hears'>🖤</span> 
+          Atabekov Farrukh </a>
         </MDBContainer>
       </div>
     </MDBFooter>

@@ -16,7 +16,7 @@ class App extends Component {
 
   state = {
     collection: [],
-    categories: ['General', 'Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology', 'Technology'],
+    categories: ['General', 'Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology', 'COVID-19'],
     countries: ['USA', 'RUSSIA', 'KOREA'],
     currentCountry: 'us',
     currentCategoryID: 0,
@@ -38,9 +38,15 @@ class App extends Component {
 
   //Set the current category id to the index of the new selected category
   changeCategory = (newCategory) => {
+    newCategory !== 'COVID-19' ? 
     this.setState((prevState, prevProps) => {
       return {
         currentCategoryID: prevState.categories.findIndex(category => category === newCategory),
+      }
+    })
+    : this.setState((prevState, prevProps) => {
+      return {
+        currentCategoryID: prevState.currentCategoryID,
       }
     })
   }

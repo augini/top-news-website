@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse,MDBNavbarBrand } from "mdbreact";
+import { MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBNavbarBrand } from "mdbreact";
 import './NavbarStyle.css'
 import RUSSIA from './russia.svg'
 import USA from './united-states-of-america.svg'
@@ -8,8 +8,8 @@ import KOREA from './south-korea.svg'
 class NavbarPage extends Component {
   state = {
     regions: [
-      { country: 'USA',  id: '1', link: '/'},
-      { country: 'RUSSIA',  id: '2', link: '/' },
+      { country: 'USA', id: '1', link: '/' },
+      { country: 'RUSSIA', id: '2', link: '/' },
       { country: 'KOREA', id: '3', link: '/' },
     ],
     collapseID: "",
@@ -30,7 +30,7 @@ class NavbarPage extends Component {
       '미국': USA,
       'США': USA,
       'KOREA': KOREA,
-      '대한민국':KOREA,
+      '대한민국': KOREA,
       'Корея': KOREA
     }
     return (
@@ -50,27 +50,29 @@ class NavbarPage extends Component {
             {/* Flag Lit fsor regions */}
             {this.state.regions.map((region, index) => (
 
-               <MDBNavItem key={index} className = 'navItemContainer'>
-                  <MDBNavLink to={region.link} onClick={() => { changeCountry(countries[index]) }} >
+              <MDBNavItem key={index} className='navItemContainer'>
+                <MDBNavLink to={region.link} onClick={() => { changeCountry(countries[index]) }} >
 
-                    <img src = {flags[countries[index]] } alt="React Logo" className = 'flagImage' />
-                    { countries[index] }
-                  
-                  </MDBNavLink>
-                </MDBNavItem> 
+                  <img src={flags[countries[index]]} alt="React Logo" className='flagImage' />
+                  {countries[index]}
 
-              ))}
-              
+                </MDBNavLink>
+              </MDBNavItem>
+
+            ))}
+
             {/* <MDBNavItem>
               <MDBNavLink className="waves-effect waves-light" to="/">
                 <MDBIcon icon="cog" className="mr-1" />Settings</MDBNavLink>
             </MDBNavItem> */}
 
-            <MDBNavItem>
+            {/* <MDBNavItem>
               <MDBNavLink className="waves-effect waves-light" to="/">
-                <i className="fas fa-laptop-code mr-1"></i>Atabekov Farrukh
+                <a href="https://www.atabekov.com" alt='Farrukh Portfolio' >
+                <i className="fas fa-laptop-code mr-1"></i> Atabekov Farrukh
+                </a>
               </MDBNavLink>
-            </MDBNavItem>
+            </MDBNavItem> */}
 
           </MDBNavbarNav>
 

@@ -1,5 +1,6 @@
 .tcontainer {
     width: 100%;
+    overflow: hidden;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
@@ -54,5 +55,6 @@
     padding-left: 15px;
     padding-right: 10px;
     z-index: 2;
-    box-shadow: 1px 1px 3px 2px black;
+    box-shadow: 1px 1px 2px 2px black;
+    cursor: default;
 }

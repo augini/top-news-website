@@ -5,6 +5,6 @@ import "./DiscoverStyle.css"
 export const Discover = (props) => (
   <div>
     <h4 className = "discover-container"> DISCOVER MORE...</h4>
-    <DiscoverCardList generalContent = {props.generalContent}/>
+    <DiscoverCardList generalContent = {props.generalContent.slice(0,4)}/>
   </div>
 )

@@ -10,8 +10,9 @@
     transform: scale(1.01);
 }
 
-.imageContainer {
+img {
+    float: center;
     width: 1050px;
     height: 550px;
-    background-position: center;
+    object-fit: cover;
 }

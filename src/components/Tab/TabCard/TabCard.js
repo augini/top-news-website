@@ -7,7 +7,7 @@ const TabCard = (props) => {
   const cleverTime = moment().startOf(new Date(props.content.publishedAt).getHours).fromNow(); 
   return (
     <a href={props.content.url}>
-      <MDBCard className="tab-card-container w-100 mb-4" style={{ maxWidth: "22rem", color: 'black' }} >
+      <MDBCard className="tab-card-container w-100 mb-4 shadow-box-example hoverable" style={{ maxWidth: "22rem", color: 'black' }} >
       <MDBCardImage className="img-fluid" src={props.content.urlToImage} waves />
         <MDBCardBody>
           {/* <MDBCardTitle>{props.content.title}</MDBCardTitle> */}
