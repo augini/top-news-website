@@ -3,18 +3,17 @@ import { MDBTabPane, MDBTabContent, MDBNav, MDBNavItem, MDBNavLink } from "mdbre
 import CarouselPage from '../Carousel/CarouselPage'
 import { TabList } from './TabList/TabList'
 
-
 class TabPage extends Component {
   state = {
     activeItem: "1",
     tabs: [
-      { tab: 'General', id: '1', role: 'tab', link: '/', content: this.props.generalContent },
-      { tab: 'Business', id: '2', role: 'tab', link: '/', content: this.props.generalContent },
-      { tab: 'Entertainment', id: '3', role: 'tab', link: '/', content: this.props.generalContent },
-      { tab: 'Health', id: '4', role: 'tab', link: '/', content: this.props.generalContent },
-      { tab: 'Science', id: '5', role: 'tab', link: '/', content: this.props.generalContent },
-      { tab: 'Sports', id: '6', role: 'tab', link: '/', content: this.props.generalContent },
-      { tab: 'Technology', id: '7', role: 'tab', link: '/', content: this.props.generalContent },
+      {id: '1', role: 'tab', link: '/'},
+      {id: '2', role: 'tab', link: '/'},
+      {id: '3', role: 'tab', link: '/'},
+      {id: '4', role: 'tab', link: '/'},
+      {id: '5', role: 'tab', link: '/'},
+      {id: '6', role: 'tab', link: '/'},
+      {id: '7', role: 'tab', link: '/'},
     ],
   };
 
@@ -26,13 +25,15 @@ class TabPage extends Component {
         this.setState({
           activeItem: tab
         })
-      }, 100)
-    }
+      }, 100)}
   };
 
 
   render() {
-    // console.log(this.props.generalContent, "comingfrom TabPage");
+
+    const {categories} = this.props
+    const {generalContent} = this.props
+
     return (
       <div className="w-100 pl-2 pr-2">
 
@@ -42,9 +43,9 @@ class TabPage extends Component {
               <MDBNavLink className ='text-dark'
               link to={tab.link} 
               active={this.state.activeItem === tab.id} 
-              onClick={this.toggle(tab.id, tab.tab.toLowerCase()) } 
+              onClick={this.toggle(tab.id, categories[index] )} 
               role={tab.role}>
-              {tab.tab}
+              {categories[index]}
               </MDBNavLink>
             </MDBNavItem>
           ))}
@@ -55,8 +56,8 @@ class TabPage extends Component {
 
             <MDBTabPane key={index} tabId={tab.id} role="tabpanel">
               <div className="mt-1 d-flex p-3">
-                <CarouselPage generalContent={this.props.generalContent.slice(0, 7)} />
-                <TabList generalContent={this.props.generalContent.slice(7, 11)} />
+                <CarouselPage generalContent={generalContent.slice(0, 7)} />
+                <TabList generalContent={generalContent.slice(7, 11)} />
               </div>
             </MDBTabPane>
 

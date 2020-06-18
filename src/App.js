@@ -8,32 +8,26 @@ import SpinnerPage from './components/Spinner/SpinnnerPage'
 import { Discover } from './components/Discover/Discover'
 import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css'
+import {USA, RUSSIA, KOREA, countriesList} from './consonants/CountryChangeConsonants'
 
-import { FetchData } from './api'
 
 class App extends Component {
- 
+
   state = {
-      collection: [],
-      // categories: ['general', 'business', 'entertainment', 'health', 'science', 'sports', 'technology'],
-      categories: ['general', 'business'],
-      countries: ['us', 'kr', 'ru'],
-      currentCountry: 'us',
-      currentCategoryID: 0,
-      isLoading: true
-    }
+    collection: [],
+    categories: ['General', 'Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology'],
+    countries: ['USA', 'RUSSIA', 'KOREA'],
+    currentCountry: 'us',
+    currentCategoryID: 0,
+    isLoading: true
+  }
 
   componentDidMount() {
-  //Pull data from API for each category
-  this.state.categories.forEach(async (category) =>{
-      const response = await FetchData(this.state.currentCountry,category)
-        this.setState((prevState) => {
-          return {
-            isLoading: false,
-            collection: [...prevState.collection, response],
-       }})
-       
-    })
+    //Set the collection to american articles
+    this.setState( {
+        isLoading: false,
+        collection: USA.data,
+      })
   }
 
   //Set the current category id to the index of the new selected category
@@ -45,32 +39,36 @@ class App extends Component {
     })
   }
 
- changeCountry  = async (country) => {
-    const response =  await FetchData(country, 'business')
-    this.setState((prevState) => {
-    return {
-      isLoading: false,
-      collection: [response]
- }})}
+  changeCountry = async (country) => {
+    console.log(country, "inside function");
+    const data  = countriesList[1].includes(country) ? RUSSIA
+                  :countriesList[2].includes(country) ? KOREA
+                  :USA
+    this.setState( {
+        isLoading: false,
+        collection: data.data,
+        categories:data.categories,
+        countries: data.countries
+    })
+  }
 
 
   render() {
     const data = this.state.collection[this.state.currentCategoryID]
     console.log(this.state.collection);
     return (
-      this.state.isLoading ? 
-      <SpinnerPage /> :
-      <BrowserRouter>
-        <div className="App">
-          <Navbar changeCountry = {this.changeCountry} />
-          <HeaderNewsLine generalContent= {data} />
-          <TabPage generalContent = {data} changeCategory={this.changeCategory} />
-          <Discover generalContent = {data} />
-          <Route path='/hello' component={ Welcome } />
-          <FooterPage />
-        </div>
-      </BrowserRouter>
-
+      this.state.isLoading ?
+        <SpinnerPage /> :
+        <BrowserRouter>
+          <div className="App">
+            <Navbar changeCountry={this.changeCountry} countries = {this.state.countries}/>
+            <HeaderNewsLine generalContent={data} />
+            <TabPage generalContent={data} changeCategory={this.changeCategory} categories = {this.state.categories} />
+            <Discover generalContent={data} />
+            <Route path='/hello' component={Welcome} />
+            <FooterPage />
+          </div>
+        </BrowserRouter>
     );
   }
 }
