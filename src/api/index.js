@@ -1,24 +1,45 @@
 import axios from 'axios'
 
-const url = `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=33c6c100c9154b9a819d0e552f749941`
+const url = 'https://covid19.mathdro.id/api'
 
-export const FetchData = async (country, category) => {
-  let changeableUrl = url
+export const FetchData = async (country) => {
+  let changeableUrl = url;
 
   if(country){
-    let UrlStart = url.slice(0,45)
-    changeableUrl = `${UrlStart}${country}&category=business&apiKey=33c6c100c9154b9a819d0e552f749941`
+    changeableUrl = `${url}/countries/${country}`
   }
 
-  let changeableUrlStart = changeableUrl.slice(0,57)
-  changeableUrl = `${changeableUrlStart}${category}&apiKey=33c6c100c9154b9a819d0e552f749941`
-
-  try{ 
-    const { data: {articles} } = await axios.get(changeableUrl)
-    return articles
+  try {
+    const { data: {confirmed, recovered, deaths, lastUpdate} } = await axios.get(changeableUrl)
+    return { confirmed, recovered, deaths, lastUpdate,}
   }
-  catch(error){
-    console.log(error)
+  catch (error) {
+    console.log(error);
   }
 }
 
+export const FetchDailyData = async () => {
+  try {
+    const { data } = await axios.get(`${url}/daily`)
+
+    const modifiedData = data.slice(data.length-120).map((dailyData) => ({
+      confirmed: dailyData.confirmed.total,
+      deaths: dailyData.deaths.total,
+      date: dailyData.reportDate }))
+
+    return modifiedData
+  }
+  catch {
+
+  }
+}
+
+export const FetchCountries = async () => {
+  try {
+    const {data: {countries}} = await axios.get(`${url}/countries`)
+    return countries.map((country) => country.name)
+  }
+  catch(error) {
+    console.log(error);
+  }
+}

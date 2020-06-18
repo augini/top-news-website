@@ -7,6 +7,7 @@ import Welcome from './components/Welcome/Welcome'
 import SpinnerPage from './components/Spinner/SpinnnerPage'
 import { Discover } from './components/Discover/Discover'
 import { BrowserRouter, Route } from 'react-router-dom';
+import { FetchData } from './api'
 import './App.css'
 import {USA, RUSSIA, KOREA, countriesList} from './consonants/CountryChangeConsonants'
 
@@ -15,16 +16,21 @@ class App extends Component {
 
   state = {
     collection: [],
-    categories: ['General', 'Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology'],
+    categories: ['General', 'Business', 'Entertainment', 'Health', 'Science', 'Sports', 'Technology', 'Technology'],
     countries: ['USA', 'RUSSIA', 'KOREA'],
     currentCountry: 'us',
     currentCategoryID: 0,
     isLoading: true
   }
 
-  componentDidMount() {
-    //Set the collection to american articles
+  async componentDidMount() {
+    //Get the data for covid statistics
+    const data = await FetchData()
+    console.log(data);
+
+    //Set the collection to american articles and covid stats
     this.setState( {
+        data: data,
         isLoading: false,
         collection: USA.data,
       })
@@ -39,6 +45,7 @@ class App extends Component {
     })
   }
 
+  //Change the category for news
   changeCountry = async (country) => {
     console.log(country, "inside function");
     const data  = countriesList[1].includes(country) ? RUSSIA
@@ -52,6 +59,17 @@ class App extends Component {
     })
   }
 
+  //Change the category needed to display the COVID stats
+  handleChange  = async (country) => {
+    //fetch the data
+    const data = await FetchData(country)
+    this.setState({
+      data: data,
+      country: country
+    })
+    //set the state
+    console.log(country)
+  }
 
   render() {
     const data = this.state.collection[this.state.currentCategoryID]
@@ -63,7 +81,14 @@ class App extends Component {
           <div className="App">
             <Navbar changeCountry={this.changeCountry} countries = {this.state.countries}/>
             <HeaderNewsLine generalContent={data} />
-            <TabPage generalContent={data} changeCategory={this.changeCategory} categories = {this.state.categories} />
+            <TabPage 
+                generalContent={data} 
+                changeCategory={this.changeCategory} 
+                categories = {this.state.categories} 
+                handleChange = {this.handleChange}
+                data = {this.state.data}
+                country = {this.state.country}
+                />
             <Discover generalContent={data} />
             <Route path='/hello' component={Welcome} />
             <FooterPage />

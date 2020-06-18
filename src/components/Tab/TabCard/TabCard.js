@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import { MDBCard, MDBCardBody, MDBCardText, MDBCardImage, MDBCardFooter} from 'mdbreact';
+import { MDBCard, MDBCardBody, MDBCardText, MDBCardImage} from 'mdbreact';
 import './TabCard.css'
 
 const TabCard = (props) => {
@@ -13,10 +13,10 @@ const TabCard = (props) => {
           {/* <MDBCardTitle>{props.content.title}</MDBCardTitle> */}
           <MDBCardText>{props.content.description}</MDBCardText>
         </MDBCardBody>
-        <MDBCardFooter className = 'd-flex justify-content-between'>
+        <div className = 'd-flex justify-content-between ml-3 mr-3'>
         <p className ="font-weight-bold">{props.content.source.name}</p>
         <p>{cleverTime}</p>
-        </MDBCardFooter>
+        </div>
       </MDBCard>
     </a>
   )

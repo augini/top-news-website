@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBIcon, MDBNavbarBrand } from "mdbreact";
+import { MDBNavbar, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse,MDBNavbarBrand } from "mdbreact";
 import './NavbarStyle.css'
 import RUSSIA from './russia.svg'
 import USA from './united-states-of-america.svg'
