@@ -15,6 +15,7 @@ export const FetchData = async (country, category) => {
 
   try{ 
     const { data: {articles} } = await axios.get(changeableUrl)
+    console.log(articles);
     return articles
   }
   catch(error){

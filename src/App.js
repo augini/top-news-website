@@ -9,7 +9,8 @@ import { Discover } from './components/Discover/Discover'
 import { BrowserRouter, Route } from 'react-router-dom';
 import './App.css'
 
-import { FetchData } from './api'
+import American_Collection from './api/articles/USA_articles.json'
+import { FetchData} from './api'
 
 class App extends Component {
  
@@ -24,9 +25,10 @@ class App extends Component {
     }
 
   componentDidMount() {
-  //Pull data from API for each category
+  // Pull data from API for each category
   this.state.categories.forEach(async (category) =>{
-      const response = await FetchData(this.state.currentCountry,category)
+
+      const response = await FetchData(this.state.currentCountry, category)
         this.setState((prevState) => {
           return {
             isLoading: false,
@@ -56,7 +58,8 @@ class App extends Component {
 
   render() {
     const data = this.state.collection[this.state.currentCategoryID]
-    console.log(this.state.collection);
+    console.log(this.state.collection, "this.state.collection");
+    console.log(American_Collection, "American Collection");
     return (
       this.state.isLoading ? 
       <SpinnerPage /> :
