@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "07ff5b90b3ad943b6bebe0d2584efe0b",
+    "revision": "04cc2403387f08e621fe830dcbd5286a",
     "url": "/top-news-website/index.html"
   },
   {
-    "revision": "01be70c26526839e0e86",
+    "revision": "50e7060b5338c9ff0ee1",
     "url": "/top-news-website/static/css/2.2be2783e.chunk.css"
   },
   {
-    "revision": "ae551d128b5986e8c66a",
-    "url": "/top-news-website/static/css/main.0d169b7d.chunk.css"
+    "revision": "4bd6693c811c2dfdd2d7",
+    "url": "/top-news-website/static/css/main.d65bfe25.chunk.css"
   },
   {
-    "revision": "01be70c26526839e0e86",
-    "url": "/top-news-website/static/js/2.9ea770bf.chunk.js"
+    "revision": "50e7060b5338c9ff0ee1",
+    "url": "/top-news-website/static/js/2.513677e1.chunk.js"
   },
   {
     "revision": "8f1ab18056c81b97e85bb68b42e50a35",
-    "url": "/top-news-website/static/js/2.9ea770bf.chunk.js.LICENSE.txt"
+    "url": "/top-news-website/static/js/2.513677e1.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "ae551d128b5986e8c66a",
-    "url": "/top-news-website/static/js/main.0e921a12.chunk.js"
+    "revision": "4bd6693c811c2dfdd2d7",
+    "url": "/top-news-website/static/js/main.13fddb75.chunk.js"
   },
   {
     "revision": "aed0cbc74263e31fa350",
@@ -96,15 +96,15 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/top-news-website/static/media/fa-solid-900.ec763292.svg"
   },
   {
-    "revision": "2434e4f0658fa694dc7c578e21950193",
-    "url": "/top-news-website/static/media/russia.2434e4f0.svg"
+    "revision": "2451b45fabb869ac7bf99eaf382a4caf",
+    "url": "/top-news-website/static/media/russia.2451b45f.svg"
   },
   {
-    "revision": "5bd50db07092cd7116ea7e04aeaccfe2",
-    "url": "/top-news-website/static/media/south-korea.5bd50db0.svg"
+    "revision": "d185ec87fe7735dc5d86a1e81f98086c",
+    "url": "/top-news-website/static/media/south-korea.d185ec87.svg"
   },
   {
-    "revision": "a035edadeadb79c859f4a31c4392b1bb",
-    "url": "/top-news-website/static/media/united-states-of-america.a035edad.svg"
+    "revision": "c6f63129551cb3628105887845434240",
+    "url": "/top-news-website/static/media/united-states-of-america.c6f63129.svg"
   }
 ]);
